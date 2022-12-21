@@ -121,7 +121,7 @@ router.put("/:id/unfollow", async (req, res) => {
 });
 
 // get all users
-router.get("/getAllUsers", async (req,res) => {
+router.get("/users", async (req,res) => {
   try{
       console.log("request for getAllUsers received");
       const users = await User.find({});

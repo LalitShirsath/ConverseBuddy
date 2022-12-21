@@ -106,10 +106,7 @@ export default function Messenger() {
   useEffect(() => {
     const generateUsers = async () => {
       try{
-          console.log("check ");
-          let response = await axios.get("/getAllUsers");
-          // console.log("check2");
-          console.log("all user data: ",response.data);
+          let response = await axios.get("/getAllUsers/users");
           setAllUsers(response.data);
       }
       catch(error){
@@ -128,6 +125,7 @@ export default function Messenger() {
         <div className="chatMenu">
           <div className="chatMenuWrapper">
             <input placeholder="Search for friends" className="chatMenuInput" />
+
             {conversations.map((c) => ( 
 
               <div onClick={() => setCurrentChat(c)}>
@@ -137,11 +135,9 @@ export default function Messenger() {
 
             {/* {allUsers.map((c) => ( 
 
-                c._id !== user._id &&
-
-                <div onClick={() => setCurrentChat(c)}>
-                  <Conversation conversation={c} currentUser={user} />
-                </div>
+            <div onClick={() => setCurrentChat(c)}>
+              <Conversation conversation={c} currentUser={user} />
+            </div>
             ))} */}
 
           </div>
