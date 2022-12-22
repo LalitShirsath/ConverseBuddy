@@ -1,4 +1,3 @@
-import e from "express";
 
 function generateKey(str,key){
     key=key.split("");

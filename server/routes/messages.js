@@ -8,10 +8,12 @@ import { Encrypt, Decrypt } from "../textconversion.js";
 router.post("/", async (req, res) => {
   const newMessage = new Message(req.body);
 
-  const encrypted = Encrypt(newMessage.text);
-  newMessage.text = encrypted;
+  // console.log("plain message: ",newMessage.text);
 
-  // console.log(newMessage.text);
+  // const encrypted = Encrypt(newMessage.text);
+  // newMessage.text = encrypted;
+
+  // console.log("plain message: ",newMessage.text);
 
   try {
     const savedMessage = await newMessage.save();
@@ -29,12 +31,14 @@ router.get("/:conversationId", async (req, res) => {
       conversationId: req.params.conversationId,
     });
 
-    messages.text = Decrypt(messages.text);
+    // messages.text = Decrypt(messages.text);
 
     res.status(200).json(messages);
   } catch (err) {
     res.status(500).json(err);
   }
+
+
 });
 
 export default router;
