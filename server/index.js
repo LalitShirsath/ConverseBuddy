@@ -28,7 +28,9 @@ import postRoute from "./routes/posts.js";
 import conversationRoute from "./routes/conversations.js";
 import messageRoute from "./routes/messages.js";
 const router = express.Router();
-import path from "path";
+
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -40,7 +42,11 @@ mongoose.connect(
   }
 );
 
-// app.use("/images", express.static(path.join(__dirname, "public/images")));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
 app.use(express.json());
