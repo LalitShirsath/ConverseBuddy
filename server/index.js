@@ -40,7 +40,7 @@ mongoose.connect(
   }
 );
 
-app.use("/images", express.static(__dirname + "public/images"));
+// app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
 app.use(express.json());

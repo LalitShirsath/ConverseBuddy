@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import LogoutIcon from '@mui/icons-material/Logout';
-import avatar from "../../assets/person/noAvatar.png";
 
 // import {LogoutButton} from "../logout/Logout";
 // import { useHistory } from 'react-router-dom';
@@ -69,12 +68,11 @@ export default function Topbar() {
         </div>
         <Link to={`/profile/${user.username}`}>
           <img
-            // src={
-            //   user.profilePicture
-            //     ? PF + user.profilePicture
-            //     : PF + "person/noAvatar.png"
-            // }
-            src={avatar}
+            src={
+              user.profilePicture
+                ? PF + user.profilePicture
+                : PF + "person/noAvatar.png"
+            }
             alt=""
             className="topbarImg"
           />
