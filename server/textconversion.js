@@ -77,7 +77,7 @@ let key;
 
 export function Encrypt(message){
     let str = "GEEKSFORGEEKS";
-    let keyword = "LALIT";
+    let keyword = "AYUSH";
 
     key = generateKey(message, keyword);
     encryptedMessage = cipherText(message, key);
