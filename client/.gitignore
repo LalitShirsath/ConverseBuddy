@@ -6,8 +6,8 @@
 .pnp.js
 
 #images
-/public/assets
-/src/assets
+/public/assests
+/src/assests
 
 # testing
 /coverage
