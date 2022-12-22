@@ -133,13 +133,6 @@ export default function Messenger() {
               </div>
             ))}
 
-            {/* {allUsers.map((c) => ( 
-
-            <div onClick={() => setCurrentChat(c)}>
-              <Conversation conversation={c} currentUser={user} />
-            </div>
-            ))} */}
-
           </div>
         </div>
         <div className="chatBox">
