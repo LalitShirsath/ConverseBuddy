@@ -19,6 +19,8 @@ export default function Messenger() {
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
 
+
+
   const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
@@ -139,6 +141,7 @@ export default function Messenger() {
           <div className="chatBoxWrapper">
             {currentChat ? (
               <>
+                <Conversation conversation={currentChat} currentUser={user} />
                 <div className="chatBoxTop">
                   {messages.map((m) => (
                     <div ref={scrollRef}>
