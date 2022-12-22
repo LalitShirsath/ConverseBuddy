@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+#images
+/public/assests
+/src/assests
+
 # testing
 /coverage
 
