@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User.js");
 const bcrypt = require("bcrypt");
-import axios from "axios";
+const axios = require('axios');
 
 //REGISTER
 router.post("/register", async (req, res) => {
@@ -20,6 +20,33 @@ router.post("/register", async (req, res) => {
     console.log("user data while registration: ",newUser);
     //save user and respond
     const user = await newUser.save();
+
+    let allUsers = await axios.get("http://localhost:8800/api/getAllUsers/users");
+    // console.log("all users in auth : ",allUsers.data);
+
+    let userData = allUsers.data;
+
+    userData.map((u) => {
+      
+
+      if(u._id != user._id){
+        console.log("u is : ",u._id);
+        console.log("user is : ",user._id);
+
+          axios.post('http://localhost:8800/api/conversations/', {
+            senderId: user._id,
+            receiverId: u._id
+          })
+          .then((response) => {
+            // console.log(response);
+          }, (error) => {
+            console.log(error);
+          });
+      }
+        
+    })
+
+
     res.status(200).json(user);
   } catch (err) {
     console.log("error is: ",err.message);
