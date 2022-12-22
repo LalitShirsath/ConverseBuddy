@@ -1,11 +1,16 @@
-const router = require("express").Router();
-const Message = require("../models/Message");
+import express from "express";
+const router = express.Router();
+import Message from "../models/Message.js";
+import { Encrypt, Decrypt } from "../textconversion.js";
 
 //add
 
 router.post("/", async (req, res) => {
   const newMessage = new Message(req.body);
-  // newMessage.text = "changed text";
+
+  const encrypted = Encrypt(newMessage.text);
+  newMessage.text = encrypted;
+
   // console.log(newMessage.text);
 
   try {
@@ -23,10 +28,13 @@ router.get("/:conversationId", async (req, res) => {
     const messages = await Message.find({
       conversationId: req.params.conversationId,
     });
+
+    messages.text = Decrypt(messages.text);
+
     res.status(200).json(messages);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-module.exports = router;
+export default router;

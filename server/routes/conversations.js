@@ -1,5 +1,6 @@
-const router = require("express").Router();
-const Conversation = require("../models/Conversation");
+import express from "express";
+const router = express.Router();
+import Conversation from "../models/Conversation.js";
 
 //new conv
 
@@ -43,4 +44,4 @@ router.get("/find/:firstUserId/:secondUserId", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

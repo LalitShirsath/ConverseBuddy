@@ -1,7 +1,13 @@
-const router = require("express").Router();
-const User = require("../models/User.js");
-const bcrypt = require("bcrypt");
-const axios = require('axios');
+// const router = require("express").Router();
+// const User = require("../models/User.js");
+// const bcrypt = require("bcrypt");
+// const axios = require('axios');
+
+import express from "express";
+const router = express.Router();
+import User from "../models/User.js";
+import bcrypt from "bcrypt";
+import axios from 'axios';
 
 //REGISTER
 router.post("/register", async (req, res) => {
@@ -69,4 +75,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

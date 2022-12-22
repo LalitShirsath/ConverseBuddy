@@ -1,17 +1,34 @@
-const express = require("express");
+// const express = require("express");
+// const app = express();
+// const mongoose = require("mongoose");
+// const dotenv = require("dotenv");
+// const helmet = require("helmet");
+// const morgan = require("morgan");
+// const multer = require("multer");
+// const userRoute = require("./routes/users");
+// const authRoute = require("./routes/auth");
+// const postRoute = require("./routes/posts");
+// const conversationRoute = require("./routes/conversations");
+// const messageRoute = require("./routes/messages");
+// const router = express.Router();
+// const path = require("path");
+
+
+import express from "express";
 const app = express();
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const multer = require("multer");
-const userRoute = require("./routes/users");
-const authRoute = require("./routes/auth");
-const postRoute = require("./routes/posts");
-const conversationRoute = require("./routes/conversations");
-const messageRoute = require("./routes/messages");
+
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import helmet from "helmet";
+import morgan from "morgan";
+import multer from "multer";
+import userRoute from "./routes/users.js";
+import authRoute from "./routes/auth.js";
+import postRoute from "./routes/posts.js";
+import conversationRoute from "./routes/conversations.js";
+import messageRoute from "./routes/messages.js";
 const router = express.Router();
-const path = require("path");
+import path from "path";
 
 dotenv.config();
 
@@ -22,7 +39,8 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
-app.use("/images", express.static(path.join(__dirname, "public/images")));
+
+// app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
 app.use(express.json());

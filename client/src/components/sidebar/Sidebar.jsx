@@ -1,17 +1,9 @@
 import "./sidebar.css";
-import {
-  RssFeed,
-  Chat,
-  PlayCircleFilledOutlined,
-  Group,
-  Bookmark,
-  HelpOutline,
-  WorkOutline,
-  Event,
-  School,
-} from "@material-ui/icons";
+import { RssFeed, Chat, PlayCircleFilledOutlined, Group, Bookmark, HelpOutline, WorkOutline, Event, School} from "@material-ui/icons";
+import { Link } from "react-router-dom";
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
+
 
 export default function Sidebar() {
   return (
@@ -23,7 +15,11 @@ export default function Sidebar() {
             <span className="sidebarListItemText">Feed</span>
           </li>
           <li className="sidebarListItem">
-            <Chat className="sidebarIcon" />
+
+            <Link to="/messenger" style={{ textDecoration: 'none', color: '#000000' }}> 
+              <Chat className="sidebarIcon" />
+            </Link>
+            
             <span className="sidebarListItemText">Chats</span>
           </li>
           <li className="sidebarListItem">

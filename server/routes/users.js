@@ -1,7 +1,13 @@
-const User = require("../models/User");
-const router = require("express").Router();
-const bcrypt = require("bcrypt");
-const { route } = require("./messages");
+// const User = require("../models/User");
+// const router = require("express").Router();
+// const bcrypt = require("bcrypt");
+// const { route } = require("./messages");
+
+import User from "../models/User.js";
+import express from "express";
+const router = express.Router();
+import bcrypt from "bcrypt";
+import route from "./messages.js";
 
 //update user
 router.put("/:id", async (req, res) => {
@@ -133,4 +139,4 @@ router.get("/users", async (req,res) => {
 });
 
 
-module.exports = router;
+export default router;
