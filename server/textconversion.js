@@ -49,7 +49,7 @@ function originalText(cipher_text,key)
         // convert into alphabets(ASCII)
         x += 'A'.charCodeAt(0);
         orig_text+=String.fromCharCode(x);
-    }
+    } 
     return orig_text;
 }
  
