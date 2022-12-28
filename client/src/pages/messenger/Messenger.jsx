@@ -47,7 +47,7 @@ export default function Messenger() {
       }
     };
     getMessages();
-  }, [currentChat,loader]);
+  }, [loader,currentChat]);
 
 
 
@@ -83,7 +83,7 @@ export default function Messenger() {
     e.preventDefault();
 
     // just for calling useEffect for decrypting messages
-    let newLoader = !(loader);
+    let newLoader = Math.random();
     setLoader(newLoader);
 
     const message = {

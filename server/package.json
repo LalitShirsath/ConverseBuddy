@@ -8,6 +8,7 @@
     "start": "nodemon index.js",
     "server": "nodemon index.js --ignore client"
   },
+  "proxy": "http://localhost:8800/api/",
   "author": "",
   "license": "ISC",
   "dependencies": {

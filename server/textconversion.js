@@ -19,9 +19,10 @@ function generateKey(str,key){
 function cipherText(str,key)
 {
     let cipher_text="";
-  
+    console.log("key is : ",key);
     for (let i = 0; i < str.length; i++)
     {
+        console.log("char of key : ",key[i]);
         // converting in range 0-25
         let x = (str[i].charCodeAt(0) + key[i].charCodeAt(0)) %26;
   
@@ -85,9 +86,9 @@ export function Encrypt(message){
     let keyword = "LALIT";
     // originalMessage = message;
     
-    // key = generateKey(message, keyword);
+    key = generateKey(message, keyword);
 
-    key = "LALIT"; 
+    // key = "LALIT"; 
     console.log("key in Encryption", key);
 
     let arr = message.split(" ");
@@ -108,8 +109,8 @@ export function Decrypt(message){
     // return originalText(message, key);
 
     let keyword = "LALIT";
-    // key = generateKey(message, keyword);
-    key = "LALIT"; 
+    key = generateKey(message, keyword);
+    // key = "LALIT"; 
 
     if(typeof message === 'string' && message !== undefined){
         let arr = message.split(" ");
