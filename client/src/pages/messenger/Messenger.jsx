@@ -19,6 +19,8 @@ export default function Messenger() {
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
 
+  const [loader, setLoader] = useState(0);
+
 
 
   const [allUsers, setAllUsers] = useState([]);
@@ -33,6 +35,21 @@ export default function Messenger() {
       });
     });
   }, []);
+
+  useEffect(() => {
+    const getMessages = async () => {
+      try {
+        const res = await axios.get("/messages/" + currentChat?._id);
+        // console.log("in messenger : ",res.data[0].text);
+        setMessages(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getMessages();
+  }, [currentChat,loader]);
+
+
 
   useEffect(() => {
     arrivalMessage &&
@@ -61,20 +78,14 @@ export default function Messenger() {
     getConversations();
   }, [user._id]);
 
-  useEffect(() => {
-    const getMessages = async () => {
-      try {
-        const res = await axios.get("/messages/" + currentChat?._id);
-        setMessages(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getMessages();
-  }, [currentChat]);
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // just for calling useEffect for decrypting messages
+    let newLoader = !(loader);
+    setLoader(newLoader);
+
     const message = {
       sender: user._id,
       text: newMessage,

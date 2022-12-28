@@ -36,8 +36,8 @@ router.post("/register", async (req, res) => {
       
 
       if(u._id != user._id){
-        console.log("u is : ",u._id);
-        console.log("user is : ",user._id);
+        // console.log("u is : ",u._id);
+        // console.log("user is : ",user._id);
 
           axios.post('http://localhost:8800/api/conversations/', {
             senderId: user._id,
