@@ -13,16 +13,15 @@ function generateKey(str,key){
     }
     return key.join("");
 }
- 
+
 // This function returns the encrypted text
 // generated with the help of the key
 function cipherText(str,key)
 {
     let cipher_text="";
-    console.log("key is : ",key);
+
     for (let i = 0; i < str.length; i++)
     {
-        console.log("char of key : ",key[i]);
         // converting in range 0-25
         let x = (str[i].charCodeAt(0) + key[i].charCodeAt(0)) %26;
   
@@ -69,11 +68,6 @@ function LowerToUpper(s)
     return s;
 }
 
-// function isCharacterALetter(char) {
-//   return (/[a-zA-Z]/).test(char)
-// }
- 
-
 
 
 // dont keep them here, they are changing to undefined while decrypt
@@ -87,9 +81,6 @@ export function Encrypt(message){
     // originalMessage = message;
     
     key = generateKey(message, keyword);
-
-    // key = "LALIT"; 
-    console.log("key in Encryption", key);
 
     let arr = message.split(" ");
     
@@ -105,8 +96,6 @@ export function Encrypt(message){
 
 
 export function Decrypt(message){
-    // console.log("printing msg : ",message);
-    // return originalText(message, key);
 
     let keyword = "LALIT";
     key = generateKey(message, keyword);
@@ -114,9 +103,7 @@ export function Decrypt(message){
 
     if(typeof message === 'string' && message !== undefined){
         let arr = message.split(" ");
-        
-        console.log("key in Decryption", key);
-        
+
         for(let i=0;i<arr.length;i++){
             arr[i] = originalText(arr[i], key);
         }
@@ -130,9 +117,8 @@ export function Decrypt(message){
         }
 
         let output = outputArr.join("");;
-        // console.log("in conversion algo: ",output);
-        return output;
 
+        return output;
     }
 
     return "undefined string";

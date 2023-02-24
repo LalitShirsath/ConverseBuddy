@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   const newMessage = new Message(req.body);
 
   const encrypted = Encrypt(newMessage.text);
-  // console.log(encrypted);
+  console.log(encrypted);
 
   newMessage.text = encrypted;
 

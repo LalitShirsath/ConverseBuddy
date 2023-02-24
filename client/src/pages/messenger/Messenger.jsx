@@ -83,7 +83,9 @@ export default function Messenger() {
     e.preventDefault();
 
     // just for calling useEffect for decrypting messages
-    let newLoader = Math.random();
+    let newLoader = Math.random()*Math.random();
+    console.log(newLoader);
+
     setLoader(newLoader);
 
     const message = {
