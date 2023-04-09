@@ -76,7 +76,6 @@ router.post("/login", async (req, res) => {
       res.status(400).json("wrong password");
       return;
     }
-        
 
     console.log("now");
     
