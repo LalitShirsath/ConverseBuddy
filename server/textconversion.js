@@ -24,7 +24,7 @@ function cipherText(str,key)
     {
         // converting in range 0-25
         let x = (str[i].charCodeAt(0) + key[i].charCodeAt(0)) %26;
-  
+    
         // convert into alphabets(ASCII)
         x += 'A'.charCodeAt(0);
   
@@ -32,13 +32,12 @@ function cipherText(str,key)
     }
     return cipher_text;
 }
- 
+
 // This function decrypts the encrypted text
 // and returns the original text
-function originalText(cipher_text, key)
-{
+function originalText(cipher_text, key){
     let orig_text="";
-  
+
     for (let i = 0 ; i < cipher_text.length ; i++)
     {
         // converting in range 0-25
@@ -107,7 +106,7 @@ export function Decrypt(message){
         for(let i=0;i<arr.length;i++){
             arr[i] = originalText(arr[i], key);
         }
-        
+
         let res = arr.join(" ");
 
         let outputArr = res.split("");
