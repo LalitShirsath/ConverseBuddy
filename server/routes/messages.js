@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   const newMessage = new Message(req.body);
 
   const encrypted = Encrypt(newMessage.text);
-  console.log(encrypted);
+  // console.log(encrypted);
 
   newMessage.text = encrypted;
 
@@ -37,10 +37,10 @@ router.get("/:conversationId", async (req, res) => {
 
     for(let i=0;i<size;i++){
       if(messages[i].text != undefined){
-        console.log(messages[i].text);
+        // console.log(messages[i].text);
         let decrypted = await Decrypt(messages[i].text);
         messages[i].text = decrypted;
-        console.log(messages[i]);
+        // console.log(messages[i]);
       }
     }
     
